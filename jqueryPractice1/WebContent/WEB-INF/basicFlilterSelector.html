@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="lib/jquery-2.1.4.js"></script>
+<script type="text/javascript">
+
+
+	$(document).ready(function(){
+		function anamateIt(){
+			
+			$("#mover").slideToggle("slow", anamateIt);
+		}
+		anamateIt();
+	});
+
+	$(function(){
+		
+		$("#btn1").click(function(){
+			
+			$("div:first").css("background", "lightblue");
+		})
+		
+		$("#btn2").click(function(){
+			
+			$("div:last").css("background", "lightblue");
+		})
+		
+		$("#btn3").click(function(){
+			
+			$("div:not(.one)").css("background", "lightblue");
+		})
+		
+		$("#btn4").click(function(){
+			
+			$("div:even").css("background", "lightblue");
+		})
+		
+		$("#btn5").click(function(){
+			
+			$("div:odd").css("background", "lightblue");
+		})
+		
+		$("#btn6").click(function(){
+			
+			$("div:gt(3)").css("background", "lightblue");
+		})
+		
+		$("#btn7").click(function(){
+			
+			$("div:eq(3)").css("background", "lightblue");
+		})
+		
+		$("#btn8").click(function(){
+			
+			$("div:lt(3)").css("background", "lightblue");
+		})
+		
+		$("#btn9").click(function(){
+			
+			$(":header").css("background", "lightblue");
+		})
+		
+		$("#btn10").click(function(){
+			
+			$(":animated").css("background", "lightblue");
+		})
+		
+		$("#btn11").click(function(){
+			
+			$("#two").nextAll("span:first").css("background", "lightblue");
+		})
+	})
+	
+
+
+
+</script>
+<style type="text/css">
+div,span,p{
+	width: 140px;
+	height: 140px;
+	margin: 5px;
+	background: #aaa;
+	border: #000 1px solid;
+	float:left;
+	font-size 17px;
+	font-family: Verdana;
+}
+
+div.mini{
+	width: 55px;
+	height: 55px;
+	background: #aaa;
+	font-size: 12px;
+}
+
+div.hide{
+	display:none;
+}
+</style>
+</head>
+<body>
+<input type="button" id="btn1" value="最初のdivエレメントを選択ください" />
+<input type="button" id="btn2" value="最後のエレメントを選択ください" />
+<input type="button" id="btn3" value="全てのdivエレメント（classがoneのdivを除く）を選択ください" />
+<input type="button" id="btn4" value="indexが偶数のdivを選択ください" />
+<input type="button" id="btn5" value="indexが奇数のdivを選択ください" />
+<input type="button" id="btn6" value="indexが3より大きいdivを選択ください" />
+<input type="button" id="btn7" value="indexが3のdivを選択ください" />
+<input type="button" id="btn8" value="indexが3より小さいdivを選択ください" />
+<input type="button" id="btn9" value="全てのtitleエレメントを選択ください" />
+<input type="button" id="btn10" value="動いたエレメントを選択ください" />
+<input type="button" id="btn11" value="idがtwoの次のspanエレメントを選択してください" />
+<br/><br/>
+	<h3>基本フォルダセレクタ</h3>
+	<div class="one" id="one">
+		id为one，class为one的div
+		<div class="mini">class为mini的div</div>
+	</div>
+	<div class="one" id="two" title="test">
+		id为two，class为one,title为test的div
+		<div class="mini" title="other">class为mini,title为other的div</div>
+		<div class="mini" title="test">class为mini,title为test的div</div>
+	</div>
+	<div class="one">
+		<div class="mini">class为mini</div>
+		<div class="mini">class为mini</div>
+		<div class="mini">class为mini</div>
+		<div class="mini"></div>
+	</div>	
+	<div class="one">
+		<div class="mini">class为mini</div>
+		<div class="mini">class为mini</div>
+		<div class="mini">class为mini</div>
+		<div class="mini" title="tesst">class为mini,titleがtesst</div>
+	</div>
+	<div style="display:none;" class="none">styleのdisplayがnoneのdiv</div>
+	<div class="hide">classがhideのdiv</div>
+	<div>
+		inputのtypeが”hidden”のdiv<input type="hidden" size="8" />
+	</div>
+	<span id="span">~~spanのエレメント</span>
+	<span id="span1">spanのエレメント</span>
+	<div id="mover">
+		動いたDIV
+	</div>
+</body>
+</html>
